@@ -3,7 +3,7 @@ layout: page
 hero_path: "/assets/images/banner.png"
 logo_path: "/assets/images/boty.png"
 ---
-<section class="lead-panel" style="background-image: url('{{ page.hero_path }}');">
+<section class="lead-panel" id="lead" style="background-image: url('{{ page.hero_path }}');">
     <div class="inner">
         <div class="row">
             <h1><img class="logo" src="{{ page.logo_path }}" /></h1>
@@ -15,13 +15,13 @@ logo_path: "/assets/images/boty.png"
 </section>
 
 <section class="product-panel" id="products">
-    <div class="row">
-        <h2>The Goods</h2>
-    </div>
+    <h2>The Goods</h2>
     {% for product in site.products %}
         <div class="product row">
             <div class="product-image">
-                <img src="{{ product.image_path }}">
+                <div class="inner">
+                    <img src="{{ product.image_path }}">
+                </div>
             </div>
             <div class="product-body">
                 <h3>{{ product.title }}</h3>
@@ -41,11 +41,49 @@ logo_path: "/assets/images/boty.png"
             {% for customer in site.customers %}
                 <div class="customer">
                     <div class="customer-image">
-                        <a href="{{ customer.href }}" target="_blank" ><img src="{{ customer.image_path }}"></a>
+                        <div class="inner">
+                            <a href="{{ customer.href }}" target="_blank" ><img src="{{ customer.image_path }}"></a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <p>If you would like to become a customer, use the contact form below.</p>
     </div>
+</section>
+
+<section class="contact-panel">
+    <div class="inner">
+        <h2>Contact Us</h2>
+        <p>
+            Whether you want bread or a chat, use the form below to send us a message.
+            <br>
+            Be sure to follow us on Instagram to receive mouth watering updates.
+        </p>
+        <form>
+            <div class="row">
+                <label for="contact-panel-name">Name</label>
+                <input type="text" name="name" id="contact-panel-name">
+            </div>
+            <div class="row">
+                <label for="contact-panel-email">Email</label>
+                <input type="email" name="email" id="contact-panel-email">
+            </div>
+            <div class="row">
+                <label for="contact-panel-reason">Reason</label>
+                <select name="reason" id="contact-panel-reason">
+                    <option value="I want bread">I want bread</option>
+                    <option value="I want a hug">I want a hug</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="contact-panel-message">Message</label>
+                <textarea name="message" id="contact-panel-message"></textarea>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="backlink">
+    <a href="#lead"><p>Back to top</p></a>
 </section>

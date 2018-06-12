@@ -1,13 +1,32 @@
 ---
 ---
 // start vars
-$text: #979797;
+$text: #706A7C;
 $fill: #FAFAFA;
+$borders: #979797;
 
 $mob: "(max-width: 600px)";
 
 
 // start extends
+%flex {
+    width: 100%;
+    display: flex;
+}
+%flex-c {
+    @extend %flex;
+    align-items: center;
+    justify-content: center;
+}
+%container {
+    padding: 0 4rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    @media #{$mob} {
+        padding: 0 2rem;
+    }
+}
 %button {
     text-transform: uppercase;
     padding: 1rem 5rem;
@@ -18,45 +37,41 @@ $mob: "(max-width: 600px)";
     border-radius: 4px;
     font-size: 14px;
 }
-%img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+%image-x-x {
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+    }
+    .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    a {
+        display: inline-block;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        align-self: center;
+    }
 }
 %image-1-1 {
-    position: relative;
     &:after {
-        content: "";
-        display: block;
         padding-bottom: 100%;
     }
-
-    img {
-        @extend %img;
-    }
+    @extend %image-x-x;
 }
 %image-3-2 {
-    position: relative;
     &:after {
-        content: "";
-        display: block;
         padding-bottom: 66%;
     }
-
-    img {
-        @extend %img;
-    }
-}
-%flex {
-    width: 100%;
-    display: flex;
-}
-%flex-c {
-    @extend %flex;
-    align-items: center;
-    justify-content: center;
+    @extend %image-x-x;
 }
 
 
@@ -69,6 +84,26 @@ body, html {
     font-family: Helvetica, Arial, Helvetica, sans-serif;
     margin: 0;
     scroll-behavior: smooth;
+    color: $text;
+    font-size: 14px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+h3 {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+p {
+    letter-spacing: 0.04em;
+    font-weight: 200;
 }
 
 .lead-panel {
@@ -94,32 +129,46 @@ body, html {
 
 .product-panel {
     @extend %flex-c;
+    @extend %container;
     flex-wrap: wrap;
-    padding: 0 4rem;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 
     .row {
         @extend %flex-c;
     }
 
+    > :first-child {
+        margin-top: 0;
+    }
+    > :last-child {
+        margin-bottom: 0;
+    }
+
     h2 {
         width: 100%;
-        margin: 4rem 0 0 0;
 
         @media #{$mob} {
-            text-align: center;
         }
     }
 
     .product {
-        margin: 2rem 0;
+        margin: 2rem 0 0 0;
         flex-wrap: wrap;
+
+        @media #{$mob} {
+            justify-content: left;
+        }
+
+        &:first-of-type {
+            margin: 0;
+        }
 
         &-image {
             @extend %image-1-1;
             width: 50%;
+            max-width: 300px;
+            min-width: 200px;
         }
 
         &-body {
@@ -127,6 +176,7 @@ body, html {
             padding-left: 4rem;
 
             @media #{$mob} {
+                padding: 0;
                 width: 100%;
                 flex: none;
             }
@@ -135,23 +185,23 @@ body, html {
 }
 
 .customer-panel {
-    border-top: solid 1px $text;
-    border-bottom: solid 1px $text;
+    border-top: solid 1px $borders;
+    border-bottom: solid 1px $borders;
     background-color: $fill;
-    padding: 4rem 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 
-    .inner {
-        @extend %flex-c;
-        flex-wrap: wrap;
-        padding: 0 4rem;
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
+    > .inner {
+        @extend %container;
+
+        > :first-child {
+            margin-top: 0;
+        }
+        > :last-child {
+            margin-bottom: 0;
+        }
     }
 
-    h2 {
-        margin: 0;
-    }
     h2, p {
         width: 100%;
     }
@@ -169,6 +219,7 @@ body, html {
         @media #{$mob} {
             flex: none;
             width: 50%;
+            min-width: 200px;
             margin: 0;
             padding: 1rem;
         }
@@ -180,5 +231,65 @@ body, html {
         &-image {
             @extend %image-3-2;
         }
+    }
+}
+
+.contact-panel {
+    border-bottom: solid 1px $borders;
+    color: white;
+    background-color: #060807;
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+    .inner {
+        @extend %container;
+        > :first-child {
+            margin-top: 0;
+        }
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    form {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .row {
+        @extend %flex;
+
+        input, select, textarea {
+            flex: 3;
+            margin: 1rem 0;
+            padding: 6px 16px;
+            height: 35px;
+            font-size: 16px;
+            border: solid 1px $borders;
+            border-radius: 4px;
+            -webkit-appearance: none;
+        }
+        textarea {
+            height: 100px;
+        }
+        label {
+            flex: 1;
+            line-height: 35px;
+            text-align: right;
+            margin: 1rem 2rem 1rem 0;
+        }
+    }
+}
+
+.backlink {
+    a {
+        text-decoration: none;
+        color: $text;
+    }
+    p {
+        line-height: 50px;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        margin: 0;
     }
 }
