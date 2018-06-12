@@ -1,0 +1,51 @@
+---
+layout: page
+hero_path: "/assets/images/banner.png"
+logo_path: "/assets/images/boty.png"
+---
+<section class="lead-panel" style="background-image: url('{{ page.hero_path }}');">
+    <div class="inner">
+        <div class="row">
+            <h1><img class="logo" src="{{ page.logo_path }}" /></h1>
+        </div>
+        <div class="row">
+            <p><a class="cta" href="#products">Show me bread</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="product-panel" id="products">
+    <div class="row">
+        <h2>The Goods</h2>
+    </div>
+    {% for product in site.products %}
+        <div class="product row">
+            <div class="product-image">
+                <img src="{{ product.image_path }}">
+            </div>
+            <div class="product-body">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+<section class="customer-panel">
+    <div class="inner">
+        <h2>Our Customers</h2>
+        <p>
+            Want the bread ready to eat prepared delicious ingredients and love? Visit one of these fine establishments below:
+        </p>
+        <div class="row">
+            {% for customer in site.customers %}
+                <div class="customer">
+                    <div class="customer-image">
+                        <a href="{{ customer.href }}" target="_blank" ><img src="{{ customer.image_path }}"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <p>If you would like to become a customer, use the contact form below.</p>
+    </div>
+</section>
