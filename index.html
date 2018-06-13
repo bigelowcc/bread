@@ -10,6 +10,8 @@ contact_options:
   - chat:
     name: "I want to chat"
     value: "I want to chat"
+enquire_buttons: true
+enquire_copy: "Enquire"
 ---
 <section class="lead-panel" id="lead" style="background-image: url('{{ page.hero_path }}');">
     <div class="inner">
@@ -20,7 +22,9 @@ contact_options:
             <p><a class="cta editable" href="#products">Show me bread</a></p>
         </div>
     </div>
-    <a target="_blank" href="{{site.data.social.instagram_url}}"><img src="/assets/icons/instagram.svg" class="instagram"></a>
+    {% if site.data.social.instagram_url %}
+        <a target="_blank" href="{{site.data.social.instagram_url}}"><img src="/assets/icons/instagram.svg" class="instagram"></a>
+    {% endif %}
 </section>
 
 <section class="product-panel" id="products">
@@ -35,6 +39,9 @@ contact_options:
             <div class="product-body">
                 <h3>{{ product.title }}</h3>
                 {{ product.content }}
+                {% if page.enquire_buttons %}
+                    <p class="cta"><a href="#contact">{{ page.enquire_copy }}</a></p>
+                {% endif %}
             </div>
         </div>
     {% endfor %}
@@ -61,7 +68,7 @@ contact_options:
     </div>
 </section>
 
-<section class="contact-panel">
+<section class="contact-panel" id="contact">
     <div class="inner">
         <h2 class="editable">Contact Us</h2>
         <p class="editable">
