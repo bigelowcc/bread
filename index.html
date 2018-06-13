@@ -12,6 +12,7 @@ logo_path: "/assets/images/boty.png"
             <p><a class="cta" href="#products">Show me bread</a></p>
         </div>
     </div>
+    <a target="_blank" href="{{site.data.social.instagram_url}}"><img src="/assets/icons/instagram.svg" class="instagram"></a>
 </section>
 
 <section class="product-panel" id="products">
@@ -25,7 +26,7 @@ logo_path: "/assets/images/boty.png"
             </div>
             <div class="product-body">
                 <h3>{{ product.title }}</h3>
-                <p>{{ product.content }}</p>
+                {{ product.content }}
             </div>
         </div>
     {% endfor %}
@@ -39,12 +40,12 @@ logo_path: "/assets/images/boty.png"
         </p>
         <div class="row">
             {% for customer in site.customers %}
-                <div class="customer">
-                    <div class="customer-image">
-                        <div class="inner">
-                            <a href="{{ customer.href }}" target="_blank" ><img src="{{ customer.image_path }}"></a>
-                        </div>
-                    </div>
+                <a class="customer" href="{{ customer.href }}" target="_blank" style="background-color: {{ customer.background_color }};">
+                    <span style="background-image: url({{ customer.image_path }})">{{customer.title}}</span>
+                </a>
+            {% endfor %}
+            {% for num in (1...4) %}
+                <div class="customer silent">
                 </div>
             {% endfor %}
         </div>
@@ -60,25 +61,30 @@ logo_path: "/assets/images/boty.png"
             <br>
             Be sure to follow us on Instagram to receive mouth watering updates.
         </p>
-        <form>
+        <form method="post" action="/success.html">
             <div class="row">
                 <label for="contact-panel-name">Name</label>
-                <input type="text" name="name" id="contact-panel-name">
+                <input type="text" name="name" id="contact-panel-name" required>
             </div>
             <div class="row">
                 <label for="contact-panel-email">Email</label>
-                <input type="email" name="email" id="contact-panel-email">
+                <input type="email" name="email" id="contact-panel-email" required>
             </div>
             <div class="row">
                 <label for="contact-panel-reason">Reason</label>
-                <select name="reason" id="contact-panel-reason">
+                <select name="reason" id="contact-panel-reason" required>
                     <option value="I want bread">I want bread</option>
                     <option value="I want a hug">I want a hug</option>
                 </select>
+                <label aria-hidden="true" class="dd" for="contact-panel-reason"></label>
             </div>
             <div class="row">
                 <label for="contact-panel-message">Message</label>
-                <textarea name="message" id="contact-panel-message"></textarea>
+                <textarea name="message" id="contact-panel-message" required></textarea>
+            </div>
+            <div class="row row-r">
+                <input type="hidden" name="_to" value="contact@example.com">
+                <input class="cta" type="submit" value="Submit">
             </div>
         </form>
     </div>
