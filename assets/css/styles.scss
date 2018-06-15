@@ -4,6 +4,7 @@
 $text: #706A7C;
 $fill: #FAFAFA;
 $borders: #979797;
+$block-padding: 4rem;
 
 $mob: "(max-width: 600px)";
 
@@ -26,6 +27,10 @@ $mob: "(max-width: 600px)";
     @media #{$mob} {
         padding: 0 2rem;
     }
+}
+%padding {
+    padding-top: $block-padding;
+    padding-bottom: $block-padding;
 }
 %button {
     text-transform: uppercase;
@@ -144,9 +149,8 @@ p {
 .product-panel {
     @extend %flex-c;
     @extend %container;
+    @extend %padding;
     flex-wrap: wrap;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
 
     .row {
         @extend %flex-c;
@@ -209,11 +213,10 @@ p {
 }
 
 .customer-panel {
+    @extend %padding;
     border-top: solid 1px $borders;
     border-bottom: solid 1px $borders;
     background-color: $fill;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
 
     > .inner {
         @extend %container;
@@ -271,11 +274,10 @@ p {
 }
 
 .contact-panel {
+    @extend %padding;
     border-bottom: solid 1px $borders;
     color: white;
     background-color: #060807;
-    padding-top: 4em;
-    padding-bottom: 4em;
 
     .inner {
         @extend %container;
