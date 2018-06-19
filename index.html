@@ -27,6 +27,7 @@ contact_options:
 <section class="product-panel" id="products">
     <h2 class="editable">
         The Goods
+        <a href="cloudcannon:collections/_products" class="editor-link">Edit products</a>
     </h2>
     {% for product in site.products %}
         <div class="product row">
@@ -41,6 +42,7 @@ contact_options:
                 {% if page.enquire_buttons %}
                     <p class="cta"><a href="#contact">{{ page.enquire_copy }}</a></p>
                 {% endif %}
+                <a href="cloudcannon:collections/{{ product.relative_path }}" class="editor-link">Edit {{ product.title }}</a>
             </div>
         </div>
     {% endfor %}
@@ -48,7 +50,10 @@ contact_options:
 
 <section class="customer-panel">
     <div class="inner">
-        <h2 class="editable">Our Customers</h2>
+        <h2 class="editable">
+            Our Customers
+            <a href="cloudcannon:collections/_customers" class="editor-link">Edit customers</a>
+        </h2>
         <p class="editable">
             Want the bread ready to eat prepared delicious ingredients and love? Visit one of these fine establishments below:
         </p>
@@ -90,6 +95,7 @@ contact_options:
                         <option value="{{option.option}}">{{option.option}}</option>
                     {% endfor %}
                 </select>
+                <a href="cloudcannon:#contact_options" class="editor-link">Edit options</a>
                 <label aria-hidden="true" class="dd" for="contact-panel-reason"></label>
             </div>
             <div class="row">

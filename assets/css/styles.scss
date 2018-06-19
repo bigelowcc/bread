@@ -353,3 +353,32 @@ p {
         margin: 0;
     }
 }
+
+.editor-link {
+    display: none;
+}
+
+.cms-editor-active .editor-link {
+    display: inline-block;
+    @extend %button;
+    vertical-align: text-bottom;
+    padding: .3em 2em .6em 1em;
+    font-size: 10px;
+    font-weight: 100;
+    color: #407afc;
+    border-color: #407afc;
+    
+    &:before {
+        content:"";
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        margin-right: 7px;
+        position: relative;
+        top: 2px;
+        background-image: url('/assets/icons/cc.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: sub;
+    }
+}
