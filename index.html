@@ -6,10 +6,8 @@ enquire_buttons: true
 enquire_copy: Enquire
 contact_email: bodyoftheyearbakery@gmail.com
 contact_options:
-  - name: "I want bread"
-    value: "I want bread"
-  - name: "I want to chat"
-    value: "I want to chat"
+  - option: "I want bread"
+  - option: "I want to chat"
 ---
 
 <section class="lead-panel" id="lead" style="background-image: url('{{ page.hero_path }}');">
@@ -89,7 +87,7 @@ contact_options:
                 <label for="contact-panel-reason">Reason</label>
                 <select name="reason" id="contact-panel-reason" required>
                     {% for option in page.contact_options %}
-                        <option value="{{option.value}}">{{option.name}}</option>
+                        <option value="{{option.option}}">{{option.option}}</option>
                     {% endfor %}
                 </select>
                 <label aria-hidden="true" class="dd" for="contact-panel-reason"></label>
