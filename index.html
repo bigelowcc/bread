@@ -1,18 +1,19 @@
 ---
 layout: page
-hero_path: "/assets/images/banner.png"
-logo_path: "/assets/images/boty.png"
+hero_path: /assets/images/banner.png
+logo_path: /assets/images/boty.png
 enquire_buttons: true
-enquire_copy: "Enquire"
-contact_email: "liam@bigelow.io"
+enquire_copy: Enquire
+contact_email: bodyoftheyearbakery@gmail.com
 contact_options:
   - bread:
-    name: "I want bread"
-    value: "I want bread"
+    name: I want bread
+    value: I want bread
   - chat:
-    name: "I want to chat"
-    value: "I want to chat"
+    name: I want to chat
+    value: I want to chat
 ---
+
 <section class="lead-panel" id="lead" style="background-image: url('{{ page.hero_path }}');">
     <div class="inner">
         <div class="row">
@@ -23,17 +24,19 @@ contact_options:
         </div>
     </div>
     {% if site.data.social.instagram_url %}
-        <a target="_blank" href="{{site.data.social.instagram_url}}"><img src="/assets/icons/instagram.svg" class="instagram"></a>
+        <a target="_blank" href="{{site.data.social.instagram_url}}"><img src="/assets/icons/instagram.svg" class="instagram" /></a>
     {% endif %}
 </section>
 
 <section class="product-panel" id="products">
-    <h2 class="editable">The Goods</h2>
+    <h2 class="editable">
+        The Goods
+    </h2>
     {% for product in site.products %}
         <div class="product row">
             <div class="product-image">
                 <div class="inner">
-                    <img src="{{ product.image_path }}">
+                    <img src="{{ product.image_path }}" />
                 </div>
             </div>
             <div class="product-body">
@@ -78,11 +81,11 @@ contact_options:
         <form method="post" action="/success/">
             <div class="row">
                 <label for="contact-panel-name">Name</label>
-                <input type="text" name="name" id="contact-panel-name" required>
+                <input type="text" name="name" id="contact-panel-name" required />
             </div>
             <div class="row">
                 <label for="contact-panel-email">Email</label>
-                <input type="email" name="email" id="contact-panel-email" required>
+                <input type="email" name="email" id="contact-panel-email" required />
             </div>
             <div class="row">
                 <label for="contact-panel-reason">Reason</label>
@@ -98,8 +101,8 @@ contact_options:
                 <textarea name="message" id="contact-panel-message" required></textarea>
             </div>
             <div class="row row-r">
-                <input type="hidden" name="_to" value="liam@bigelow.io">
-                <input class="cta" type="submit" value="Submit">
+                <input type="hidden" name="_to" value="liam@bigelow.io" />
+                <input class="cta" type="submit" value="Submit" />
             </div>
         </form>
     </div>
