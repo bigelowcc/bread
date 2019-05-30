@@ -16,7 +16,7 @@ contact_options:
             <h1><img class="logo" src="{{ page.logo_path }}" /></h1>
         </div>
         <div class="row">
-            <p><a class="cta editable" href="#products">Show me bread</a></p>
+            <p><a class="cta editable" href="#products">Show me bSHEd</a></p>
         </div>
     </div>
     {% if site.data.social.instagram_url %}
@@ -26,8 +26,7 @@ contact_options:
 
 <section class="product-panel" id="products">
     <h2 class="editable">
-        The Goods
-        <a href="cloudcannon:collections/_products" class="editor-link">Edit products</a>
+        The Goods <a class="editor-link" href="cloudcannon:collections/_products">Edit products</a>
     </h2>
     {% for product in site.products %}
         <div class="product row">
@@ -51,8 +50,7 @@ contact_options:
 <section class="customer-panel">
     <div class="inner">
         <h2 class="editable">
-            Our Customers
-            <a href="cloudcannon:collections/_customers" class="editor-link">Edit customers</a>
+            Our Customers <a class="editor-link" href="cloudcannon:collections/_customers">Edit customers</a>
         </h2>
         <p class="editable">
             Want the bread ready to eat prepared delicious ingredients and love? Visit one of these fine establishments below:
@@ -68,16 +66,19 @@ contact_options:
                 </div>
             {% endfor %}
         </div>
-        <p class="editable">If you would like to become a customer, use the contact form below.</p>
+        <p class="editable">
+            If you would like to become a customer, use the contact form below.
+        </p>
     </div>
 </section>
 
 <section class="contact-panel" id="contact">
     <div class="inner">
-        <h2 class="editable">Contact Us</h2>
+        <h2 class="editable">
+            Contact Us
+        </h2>
         <p class="editable">
-            Whether you want bread or a chat, use the form below to send us a message.
-            Be sure to follow us on Instagram to receive mouth watering updates.
+            Whether you want bread or a chat, use the form below to send us a message. Be sure to follow us on Instagram to receive mouth watering updates.
         </p>
         <form method="post" action="/success/">
             <div class="row">
